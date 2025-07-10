@@ -69,63 +69,84 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8 px-4 font-sans">
-      <div className="max-w-3xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
-            USP GPA Calculator
-          </h1>
-          <p className="text-base text-gray-600">
-            Calculate your GPA quickly and easily with professional accuracy
-          </p>
-        </div>
-
-        {/* Main Container */}
-        <div className="bg-white rounded-lg shadow-lg p-8 space-y-8">
-          {/* Grade Range Selector */}
-          <GradeRangeSelector
-            grades={GRADES}
-            startGrade={startGrade}
-            endGrade={endGrade}
-            onStartGradeChange={setStartGrade}
-            onEndGradeChange={setEndGrade}
-          />
-
-          {/* Grade Input Table */}
-          <GradeInputTable
-            grades={GRADES}
-            startGrade={startGrade}
-            endGrade={endGrade}
-            gradeQuantities={gradeQuantities}
-            onGradeQuantityChange={handleGradeQuantityChange}
-          />
-
-          {/* Calculate Button */}
-          <div className="text-center pt-4">
-            <button
-              onClick={calculateGPA}
-              className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg text-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5"
-            >
-              Calculate GPA
-            </button>
-          </div>
-
-          {/* GPA Result */}
-          <GpaResult gpa={gpa} />
-
-          {/* File Upload Section */}
-          <div className="border-t border-gray-200 pt-8">
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">
-              Upload Grade Screenshot
-            </h3>
-            <p className="text-sm text-gray-600 mb-4">
-              Future feature: Upload screenshots for automatic grade extraction
+    <div className="min-h-screen bg-gray-50 font-sans flex flex-col">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-md mx-auto px-2 py-3">
+          <div className="text-center">
+            <h1 className="text-xl font-bold text-gray-800 mb-1">
+              USP GPA Calculator
+            </h1>
+            <p className="text-xs text-gray-600">
+              Calculate your GPA quickly and easily
             </p>
-            <FileUpload onFileUpload={handleFileUpload} />
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="flex-1 py-2 px-2">
+        <div className="max-w-md mx-auto">
+          {/* Main Container */}
+          <div className="bg-white rounded-lg shadow-lg p-4 space-y-4">
+            {/* Grade Range Selector */}
+            <GradeRangeSelector
+              grades={GRADES}
+              startGrade={startGrade}
+              endGrade={endGrade}
+              onStartGradeChange={setStartGrade}
+              onEndGradeChange={setEndGrade}
+            />
+
+            {/* Grade Input Table */}
+            <GradeInputTable
+              grades={GRADES}
+              startGrade={startGrade}
+              endGrade={endGrade}
+              gradeQuantities={gradeQuantities}
+              onGradeQuantityChange={handleGradeQuantityChange}
+            />
+
+            {/* Calculate Button */}
+            <div className="text-center pt-2">
+              <button
+                onClick={calculateGPA}
+                className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg text-sm transition-all duration-200 shadow-md hover:shadow-lg"
+              >
+                Calculate GPA
+              </button>
+            </div>
+
+            {/* GPA Result */}
+            <GpaResult gpa={gpa} />
+
+            {/* File Upload Section */}
+            <div className="border-t border-gray-200 pt-4">
+              <h3 className="text-base font-bold text-gray-800 mb-2">
+                Upload Grade Screenshot
+              </h3>
+              <p className="text-xs text-gray-600 mb-2">
+                Future feature: Upload screenshots for automatic grade extraction
+              </p>
+              <FileUpload onFileUpload={handleFileUpload} />
+            </div>
+          </div>
+        </div>
+      </main>
+
+      {/* Footer */}
+      <footer className="bg-gray-800 text-white">
+        <div className="max-w-md mx-auto px-2 py-3">
+          <div className="text-center space-y-1">
+            <p className="text-xs font-medium">
+              © 2025 Adrian Obadiah. All rights reserved.
+            </p>
+            <p className="text-xs text-gray-400">
+              USP GPA Calculator - Built with React & Tailwind CSS
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
