@@ -74,9 +74,19 @@ function App() {
       <header className="bg-white shadow-sm border-b border-gray-200">
         <div className="max-w-md mx-auto px-2 py-3">
           <div className="text-center">
-            <h1 className="text-xl font-bold text-gray-800 mb-1">
-              USP GPA Calculator
-            </h1>
+            <div className="flex items-center justify-center mb-2">
+              <img 
+                src="/logo.png" 
+                alt="USP Logo" 
+                className="w-8 h-8 mr-2"
+                onError={(e) => {
+                  e.target.style.display = 'none';
+                }}
+              />
+              <h1 className="text-xl font-bold text-gray-800">
+                USP GPA Calculator
+              </h1>
+            </div>
             <p className="text-xs text-gray-600">
               Calculate your GPA quickly and easily
             </p>
